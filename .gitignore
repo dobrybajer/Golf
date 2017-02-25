@@ -27,3 +27,6 @@
 *.exe
 *.out
 *.app
+/GolfGame/.vs/GolfGame/v14
+/GolfGame/GolfGame/bin/Debug
+/GolfGame/GolfGame/obj/Debug
