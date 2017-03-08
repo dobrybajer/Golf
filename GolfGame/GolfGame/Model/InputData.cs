@@ -1,4 +1,4 @@
-﻿namespace GolfGame
+﻿namespace GolfGame.Model
 {
     using System;
     using System.Collections.Generic;

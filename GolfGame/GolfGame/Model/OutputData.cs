@@ -1,4 +1,4 @@
-﻿namespace GolfGame
+﻿namespace GolfGame.Model
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +8,7 @@
         public int Size;
         public int MaxX;
         public int MaxY;
-        public List<Tuple<Coords,Coords>> MatchedPair;
+        public List<Tuple<Coords, Coords>> MatchedPair;
 
         public OutputData()
         {
