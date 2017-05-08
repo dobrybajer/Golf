@@ -10,7 +10,7 @@
     {
         private const int FrameSize = 10;
         private const int Scale = 1;
-        private const double ElementSize = 0.2;
+        private const double ElementSize = 1;
 
         public static void DrawResult(OutputData data)
         {
