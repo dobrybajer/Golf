@@ -45,6 +45,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataManager\TestFileGenerator.cs" />
     <Compile Include="DataManager\FileManager.cs" />
     <Compile Include="DataManager\Painter.cs" />
     <Compile Include="Logic\Algorithm.cs" />
