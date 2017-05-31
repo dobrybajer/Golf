@@ -48,7 +48,7 @@
             return input;
         }
 
-        public static void WriteOutput(OutputData data, bool writeToConsole = false)
+        public static void WriteOutput(OutputData data, string fileInfoWithExt, bool writeToConsole = false)
         {
             var result = data.MatchedPair.Aggregate("", (current, pair) => current + $"{pair.Item1.X},{-pair.Item1.Y}-{pair.Item2.X},{-pair.Item2.Y}" + Environment.NewLine);
 
@@ -57,9 +57,16 @@
                 Console.WriteLine(result);
             }
 
-            var path = $"..\\..\\..\\OutputData\\{DateTime.Now.ToString("yyyyMMdd_HHmmss")}_{data.Size}.txt";
+            var path = $"..\\..\\..\\OutputData\\{DateTime.Now.ToString("yyyyMMdd-HHmmss")}_{fileInfoWithExt}";
             
             File.WriteAllText(path, result);
+        }
+
+        public static void WriteOutputComputationTime(string output, int filesCount)
+        {
+            var path = $"..\\..\\..\\OutputData\\{DateTime.Now.ToString("yyyyMMdd-HHmmss")}_computationTime_files{filesCount}.txt";
+
+            File.WriteAllText(path, output);
         }
     }
 }

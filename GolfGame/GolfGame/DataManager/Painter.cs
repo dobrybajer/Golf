@@ -1,6 +1,7 @@
 ﻿namespace GolfGame.DataManager
 {
     using System;
+    using System.Linq;
 
     using NGraphics;
 
@@ -12,7 +13,7 @@
         private const int Scale = 1;
         private const double ElementSize = 1;
 
-        public static void DrawResult(OutputData data)
+        public static void DrawResult(OutputData data, string fileInfoWithExt)
         {
             if (data.MaxX > 5000 || data.MaxY > 5000)
             {
@@ -63,7 +64,8 @@
                 ellipse2.Draw(canvas);
             }
 
-            var path = $"..\\..\\..\\OutputData\\{DateTime.Now.ToString("yyyyMMdd_HHmmss")}_{data.Size}.png";
+            var fileInfoWithoutExt = fileInfoWithExt.Split('.').First();
+            var path = $"..\\..\\..\\OutputData\\{DateTime.Now.ToString("yyyyMMdd_HHmmss")}_{fileInfoWithoutExt}.png";
 
             canvas.GetImage().SaveAsPng(path);
         }

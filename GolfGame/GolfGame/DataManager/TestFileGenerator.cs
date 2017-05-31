@@ -74,27 +74,35 @@
             {
                 var x = rand.Next(0, maxCoordValue);
                 var y = rand.Next(0, maxCoordValue);
-                var p3 = new Coords(x, y, ElementTypeEnum.Ball);
+                var pNew = new Coords(x, y, ElementTypeEnum.Ball);
 
+                var pointExisting = false;
+                foreach (var p in pointList)
+                {
+                    if (pNew.X == p.X && pNew.Y == p.Y)
+                    {
+                        pointExisting = true;
+                    }
+                }
+
+                if (pointExisting)
+                {
+                    continue;
+                }
+                
                 var isPointCollinear = false;
                 for (var i = 0; i < pointList.Count; i++)
                 {
                     var p1 = pointList[i];
-
-                    if (p3.X == p1.X && p3.Y == p1.Y)
-                    {
-                        continue;
-                    }
-
                     for (var j = i + 1; j < pointList.Count; j++)
                     {
                         var p2 = pointList[j];
-                        isPointCollinear = CheckIfPointsAreCollinear(p1, p2, p3);
+                        isPointCollinear = CheckIfPointsAreCollinear(p1, p2, pNew);
                     }
                 }
                 if (!isPointCollinear)
                 {
-                    pointList.Add(p3);
+                    pointList.Add(pNew);
                 }
             }
 
